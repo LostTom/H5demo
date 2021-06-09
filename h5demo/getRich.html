@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul,
+			li {
+				list-style: none;
+			}
+
+			ul {
+				height: 100px;
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+				margin-top: 200px;
+			}
+
+			li {
+				float: left;
+				height: 100%;
+				width: 11%;
+				background: red;
+				font-size: 20px;
+				text-align: center;
+				line-height: 100px;
+			}
+
+			.list,
+			.list1 {
+				background: #6CE26C;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>前区</li>
+			<li class="list"></li>
+			<li class="list"></li>
+			<li class="list"></li>
+			<li class="list"></li>
+			<li class="list"></li>
+			<li>后区</li>
+			<li class="list"></li>
+			<li class="list"></li>
+		</ul>
+		<script>
+			var z = [];
+			var arrall = [];
+			var arr = [];
+			var count = 10;
+			for (let cou = 0; cou < count; cou++) {
+				for (let u = 0; u < 100; u++) {
+					var m = [];
+					var q = [];
+					// 前
+					for (let i = 0; i < 5; i++) {
+						let n = Math.ceil(Math.random() * 100 * 0.35);
+						m.push(n)
+					}
+					// 去重
+					for (let o = 0; o < m.length; o++) {
+						for (let p = o + 1; p < m.length; p++) {
+							if (m[o] == m[p]) {
+								m[p] = Math.ceil(Math.random() * 100 * 0.35);
+							}
+						}
+					}
+					// 排序
+					for (let g = 0; g < m.length; g++) {
+						for (let z = g + 1; z < m.length; z++) {
+							let d;
+							if (m[g] > m[z]) {
+								d = m[g];
+								m[g] = m[z]
+								m[z] = d;
+							}
+						}
+					}
+					// 后
+					for (let i = 0; i < 2; i++) {
+						let n = Math.ceil(Math.random() * 100 * 0.12);
+						q.push(n)
+					}
+					// 去重
+					for (let o = 0; o < q.length; o++) {
+						for (let p = o + 1; p < q.length; p++) {
+							if (q[o] == q[p]) {
+								q[p] = Math.ceil(Math.random() * 100 * 0.12);
+							}
+						}
+					}
+					// 排序
+					for (let g = 0; g < q.length; g++) {
+						for (let z = g + 1; z < q.length; z++) {
+							let d;
+							if (q[g] > q[z]) {
+								d = q[g];
+								q[g] = q[z]
+								q[z] = d;
+							}
+						}
+					}
+					for (let x = 0; x < q.length; x++) {
+						m.push(q[x])
+					}
+					z.push(m);
+				}
+				arr.length = 0;
+				var qianqu = document.getElementsByClassName("list");
+				var wei = z[Math.ceil(Math.random() * 100)];
+				for (let i = 0; i < wei.length; i++) {
+					arr.push(wei[i])
+					qianqu[i].textContent = wei[i];
+
+				}
+				// arrall[cou] = arr;
+				arrall.push(arr)
+				console.log(arrall+" "+cou)
+			}
+		</script>
+	</body>
+</html>

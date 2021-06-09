@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div onclick="say('hijs')">点击</div>
+		<script>
+			// 			function say(value) {
+			// 				// alert(value);
+			// 				console.log(value)
+			// 				return value
+			// 			}
+			// 			
+			// 			// alert(say());
+			// 			alert(say('hi js.'));
+			function say(value) {
+				alert(value);
+			}
+
+			function execute(someFunction, value) {
+				someFunction(value);
+			}
+			execute(say, 'hi js.');
+		</script>
+	</body>
+</html>

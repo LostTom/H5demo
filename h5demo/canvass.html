@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			canvas {
+				margin-left: 20px;
+			}
+
+			div {
+				display: flex;
+				flex-direction: column;
+			}
+
+			p {
+				width: 120px;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas class="canvas" width="110px" height="110px"></canvas>
+		<canvas class="canvas" width="110px" height="110px"></canvas>
+		<canvas class="canvas" width="110px" height="110px"></canvas>
+		<canvas class="canvas" width="110px" height="110px"></canvas>
+		<canvas class="canvas" width="110px" height="110px"></canvas>
+		<canvas class="canvas" width="110px" height="110px"></canvas>
+		<div style="width: 780px;height: 1.8rem;background: red;margin-left: 5px;">
+			<p>哈哈哈哈哈哈</p>
+			<p>哈哈哈哈哈哈</p>
+			<p>哈哈哈哈哈哈</p>
+			<p>哈哈哈哈哈哈</p>
+			<p>哈哈哈哈哈哈</p>
+			<p>哈哈哈哈哈哈</p>
+		</div>
+		<script>
+			var m = document.getElementsByClassName("canvas")
+			for (let i = 0; i < m.length; i++) {
+				(function() {
+					var c = m[i],
+						process = 0,
+						ctx = c.getContext('2d');
+
+					if (i == 0) {
+						//外圈
+						ctx.beginPath();
+						ctx.arc(50, 50, 50, 0, Math.PI * 2);
+						ctx.strokeStyle = '#2EC7CF';
+						ctx.stroke();
+
+						function animate() {
+							requestAnimationFrame(function() {
+								process = process + 1;
+								drawCricle(ctx, process);
+								if (process < 65) {
+									animate();
+								}
+							});
+						}
+					}
+					if (i == 1) {
+						//外圈
+						ctx.beginPath();
+						ctx.arc(50, 50, 50, 0, Math.PI * 2);
+						ctx.strokeStyle = '#B6A2DE';
+						ctx.stroke();
+
+						function animate() {
+							requestAnimationFrame(function() {
+								process = process + 1;
+								drawCricle(ctx, process);
+								if (process < 65) {
+									animate();
+								}
+							});
+						}
+					}
+					if (i == 2) {
+						//外圈
+						ctx.beginPath();
+						ctx.arc(50, 50, 50, 0, Math.PI * 2);
+						ctx.strokeStyle = '#5AB1EF';
+						ctx.stroke();
+
+						function animate() {
+							requestAnimationFrame(function() {
+								process = process + 1;
+								drawCricle(ctx, process);
+								if (process < 66) {
+									animate();
+								}
+							});
+						}
+					}
+					if (i == 3) {
+						//外圈
+						ctx.beginPath();
+						ctx.arc(50, 50, 50, 0, Math.PI * 2);
+						ctx.strokeStyle = '#FFB980';
+						ctx.stroke();
+
+						function animate() {
+							requestAnimationFrame(function() {
+								process = process + 1;
+								drawCricle(ctx, process);
+								if (process < 100) {
+									animate();
+								}
+							});
+						}
+					}
+					if (i == 4) {
+						//外圈
+						ctx.beginPath();
+						ctx.arc(50, 50, 50, 0, Math.PI * 2);
+						ctx.strokeStyle = '#CCCCCC';
+						ctx.stroke();
+
+						function animate() {
+							requestAnimationFrame(function() {
+								process = process + 1;
+								drawCricle(ctx, process);
+								if (process < 0) {
+									animate();
+								}
+							});
+						}
+					}
+					if (i == 5) {
+						//外圈
+						ctx.beginPath();
+						ctx.arc(50, 50, 50, 0, Math.PI * 2);
+						ctx.strokeStyle = '#8D98B3';
+						ctx.stroke();
+
+						function animate() {
+							requestAnimationFrame(function() {
+								process = process + 1;
+								drawCricle(ctx, process);
+								if (process < 70) {
+									animate();
+								}
+							});
+						}
+					}
+
+					function drawCricle(ctx, percent) {
+						// 画进度环
+						ctx.beginPath(); //开始一个任务
+						ctx.moveTo(50, 50); //开始坐标
+						ctx.arc(50, 50, 45, Math.PI * 1.5, Math.PI * (1.5 - 2 * percent / 100), true);
+						//x,y,r,开始角，结束角
+						ctx.closePath(); //结束一个任务
+						if (i == 0) {
+							ctx.fillStyle = '#2EC7CF';
+						};
+						if (i == 1) {
+							ctx.fillStyle = '#B6A2DE';
+						};
+						if (i == 2) {
+							ctx.fillStyle = '#5AB1EF';
+						};
+
+						if (i == 3) {
+							ctx.fillStyle = '#FFB980';
+						};
+						if (i == 4) {
+							ctx.fillStyle = '#CCCCCC';
+						};
+						if (i == 5) {
+							ctx.fillStyle = '#8D98B3';
+						};
+						ctx.fill();
+
+						// 画内填充圆
+						ctx.beginPath();
+						ctx.arc(50, 50, 30, 0, Math.PI * 2);
+						ctx.closePath();
+						ctx.fillStyle = '#fff';
+						ctx.fill();
+
+						// 填充文字
+						ctx.font = "bold 15pt Microsoft YaHei";
+						ctx.fillStyle = '#333';
+						ctx.textAlign = 'center';
+						ctx.textBaseline = 'middle';
+						ctx.moveTo(50, 50);
+						ctx.fillText(process + '%', 50, 50);
+					}
+
+					animate();
+				}());
+			}
+		</script>
+	</body>

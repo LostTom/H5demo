@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<head>
+	<meta charset="utf-8">
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.slide {
+			position: relative;
+			width: 1000px;
+			height: 500px;
+			margin: 40px auto;
+			overflow: hidden;
+		}
+
+		.img ul {
+			position: absolute;
+			left: -1000px;
+			width: 5000px;
+		}
+
+		.img li {
+			list-style-type: none;
+			float: left;
+		}
+
+		img {
+			width: 1000px;
+			height: 500px;
+		}
+
+		#num li {
+			list-style-type: none;
+			background-color: white;
+			border: 1px solid red;
+			border-radius: 100px;
+			float: left;
+			width: 10px;
+			height: 10px;
+			margin: 10px;
+			cursor: pointer;
+		}
+
+		#num {
+			position: absolute;
+			top: 450px;
+			left: 800px;
+		}
+
+		.btn {
+			font-size: 30px;
+			color: gray;
+		}
+
+		#left {
+			position: absolute;
+			top: 230px;
+			left: 40px;
+			cursor: pointer;
+		}
+
+		#right {
+			position: absolute;
+			top: 230px;
+			right: 40px;
+			cursor: pointer;
+		}
+
+		#fixed {
+			position: absolute;
+			height: 100%;
+			width: 85%;
+			background: #333;
+			opacity: 0;
+			z-index: 10;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="slide">
+		<div class="img">
+			<ul id="slide_img">
+				<li><img src="img/1.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+			</ul>
+		</div>
+		<div class="btn">
+			<span id="left">
+				<</span> <span id="right">>
+			</span>
+		</div>
+		<div id="fixed"></div>
+	</div>
+	<script>
+		
+		var number = 1; //设置为全局变量
+
+		//轮播图图片主体
+		function startSlide() {
+			if (number == 4) {
+				number = 0;
+				$('#slide_img').css({
+					left: '0px'
+				}); //处理无缝衔接图
+			}
+			number++;
+			var imageLeft = -1000 * number;
+			$('#slide_img').animate({
+				left: imageLeft
+			});
+		}
+		// var timer = setInterval(startSlide, 3000);
+
+
+
+
+		//左右按钮的实现
+		$('#left').onclick = function() {
+			leftchange()
+		};
+
+		function leftchange() {
+			// clearInterval(timer);
+			if (number == 0) {
+				$('#slide_img').css({
+					left: '-4000px'
+				});
+				number = 4;
+			}
+			var imageLeft = -1000 * (number - 1);
+			$('#slide_img').animate({
+				left: imageLeft
+			});
+			number--;
+		}
+
+
+
+		$('#right').mousedown(function() {
+			rightchange()
+		});
+
+		function rightchange() {
+			// clearInterval(timer);
+			if (number == 4) {
+				number = 0;
+				$('#slide_img').css({
+					left: '0px'
+				}); //处理无缝衔接图
+			}
+			var imageLeft = -1000 * (number + 1);
+			$('#slide_img').animate({
+				left: imageLeft
+			});
+			number++;
+
+		}
+
+		//小圆点的点击实现
+		$('#num').on('click', 'li', function() {
+			// clearInterval(timer);
+			var _number = $(this).index() + 1;
+			number = _number
+			var imageLeft = -1000 * number;
+			$('#slide_img').animate({
+				left: imageLeft
+			});
+			// timer = setInterval(startSlide, 3000);
+		});
+
+		var slide_img = document.getElementById("slide_img");
+
+
+		$("#fixed").mousedown(function(event) { //获取鼠标按下的位置
+			x = event.pageX;
+		});
+		$("#fixed").mouseup(function(event) { //鼠标释放
+			var newX = event.pageX;
+			if (x == newX) {
+				console.log("123")
+			} else if (x > newX) {
+				rightchange()
+			} else if (x < newX) {
+				leftchange()
+			}
+		})
+	</script>
+</body>
+</html>

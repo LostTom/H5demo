@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.li {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ul">
+			<li id="li">1</li>
+			<li>2</li>
+			<li id="li2">3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<script>
+			// 			for (let i = 0; i < 10; i++) {
+			// 				document.write(i)
+			// 			}
+			// 			var li = document.getElementById("li");
+			// 			var previtem = li.previousSibling;
+			// 			var ul = document.getElementById("ul");
+			// 			// var li = document.getElementById("li");
+			// 			var li1 = document.createElement("li");
+			// 			li1.appendChild(document.createTextNode("132456789"));
+			// 			li1.className = "hhhhh";
+			// 			li1.id = "yyyyy"
+			// 			ul.appendChild(li1);
+			var li2 = document.getElementById("li2")
+			var list = document.getElementsByTagName("ul")[0];
+			var nextnode = document.createElement("li");
+			nextnode.appendChild(document.createTextNode("132456789"));
+			// list.appendChild(nextnode);
+			list.insertBefore(nextnode, li2);
+			nextnode.id = "hhhhh"
+			console.log(li2.firstChild.nodeValue)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var str = "123asd456"
+			console.log(parseInt(str))
+			console.log(Number(str))
+			console.log()
+			var match = /\d*/g
+			console.log(str.match(match)[0])
+			console.log(typeof(str))
+			console.log(typeof(null))
+			console.log(typeof(undefined))
+			function a(){
+				console.log(this)
+			}
+			function b(){
+				console.log(str)
+			}
+			a()
+			new b()
+		</script>
+	</body>
+</html>

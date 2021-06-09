@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<body>
+		<button id="per">确定</button>
+		<script type="text/javascript" src="js/jquery3.3.1.min.js"></script>
+
+		<script>
+			$("button").click(function() {
+				$.ajax
+					({
+						type: "POST",
+						contentType: "application/x-www-form-urlencoded",
+						dataType: "html",
+						url: "http://127.0.0.1:8849/pinmaoservers", //这里是网址
+						success: function(data) {
+							alert(data);
+						},
+						timeout: 30000,
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert(errorThrown);
+						}
+					});
+			})
+		</script>
+	</body>
+</html>

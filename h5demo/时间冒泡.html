@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <div onclick="div()">
+			<ul onclick="ul()">
+				<li onclick="li()">123</li>
+			</ul>
+		</div>
+		<script>
+			function li(e) {
+				e = window.event
+				alert(e)
+			}
+
+			function ul() {
+				alert("ul")
+			}
+
+			function div() {
+				alert("div")
+			}
+		</script> -->
+		<input id="username" />
+		<script>
+			// 			function checkl(e, minl) {
+			// 				var el, elmes;
+			// 				if (!e) {
+			// 					e = window.event;
+			// 				}
+			// 				el = e.target || e.srcElement;
+			// 				elmes = el.nextSibling;
+			// 
+			// 				if (el.length < minl) {
+			// 					elmes.innerHTML = 'username must be' + minl;
+			// 				} else {
+			// 					elmes.innerHTML = '';
+			// 				}
+			// 			}
+			// 			var elusername = document.getElementById("username");
+			// 			if (elusername.addEventListener()) {
+			// 				elusername.addEventListener('blur', function(e) {
+			// 					checkl(e, 5);
+			// 				}, false)
+			// 			} else {
+			// 				elusername.addEventListener('onblur', function(e) {
+			// 					checkl(e, 5)
+			// 				})
+			// 			}
+			// 			window.onkeydown = function() {
+			// 				console.log("123")
+			// 			}
+			function setup() {
+			var inp = document.getElementById("username");
+			inp.focus()
+			}
+			window.addEventListener('load', setup, false);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+	<body>
+		<form action="#">
+			<select id="test">
+				<option value="1">VsCode</option>
+				<option value="2">Atorm</option>
+			</select>
+			<input type="button" value="测试" onclick="t1()">
+		</form>
+		<script>
+			function t1() {
+				var myselect = document.getElementById("test");
+				var index = myselect.selectedIndex;
+				alert(myselect.options[index].value)
+			}
+		</script>
+
+	</body>
+</html>

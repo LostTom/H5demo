@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery3.3.1.min.js"></script>
+		<script>
+// 			function myFunction(e) {
+// 				x = e.clientX;
+// 				y = e.clientY;
+// 				coor = "Coordinates: (" + x + "," + y + ")";
+// 				document.getElementById("demo").innerHTML = coor
+// 			}
+// 
+// 			function clearCoor() {
+// 				document.getElementById("demo").innerHTML = "";
+// 			}
+			var x, y;
+			$(document).mousedown(function(event) { //获取鼠标按下的位置
+				x = event.pageX;
+				y = event.pageY;
+			});
+			$(document).mouseup(function(event) { //鼠标释放
+				var newX = event.pageX;
+				var newY = event.pageY;
+				if (x == newX && y == newY) {
+					//位置相同的操作
+					console.log("123")
+				} else {
+					//位置不同的操作
+					console.log("456")
+
+				}
+			})
+		</script>
+	</head>
+	<body style="margin:0px;">
+		<!-- <div id="coordiv" style="width:199px;height:99px;border:1px solid" onmousemove="myFunction(event)" onmouseout="clearCoor()"></div>
+		<p>Mouse over the rectangle above,
+			and get the coordinates of your mouse pointer.</p>
+		<p id="demo"></p> -->
+	</body>
+</html>

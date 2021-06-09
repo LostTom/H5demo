@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" id="intext">
+        <!-- <div id="intext">点击</div> -->
+        <script>
+            
+            var inputtext = document.getElementById("intext")
+            
+            inputtext.addEventListener("keyup",function(e){
+                widthfangdou(e.target.value)
+            })
+            
+            let widthfangdou = fangdou(request,500)
+
+            //定义防抖函数
+            function fangdou (val,delay){
+                let timer
+                return function(){
+                    clearTimeout(timer)
+                    timer = setTimeout(() => {
+                        val.apply(this,arguments)
+                    }, delay);
+                }
+            }
+            //定义请求函数
+            function request(val){
+                console.log(val,"模拟请求----")
+            }
+           
+        </script>
+    </body>
+</html>

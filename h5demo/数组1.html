@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="info"></div>
+		<script>
+			var m = [1, 2, 3, 4, 5, 6];
+			m[6] = 0;
+			console.log(m);
+			// window.print();
+			console.log(window.screen.width);
+			var mes = '<h2>browser window</h2><p>width:' + window.innerWidth + '</p>';
+			mes += '<p>hegth' + window.innerHeight + '</p>';
+			mes += '<h2>history:</h2><p>items:' + window.history.length + '</p>';
+			mes += '<h2>screen</h2><p>winth:' + window.screen.width + '</p>';
+			mes += '<p>heigth:' + window.screen.height + '</p>';
+			var el = document.getElementById("info");
+			el.innerHTML = mes;
+			alert(window.location);
+			document.write("123")
+			var say = 'hello world!';
+			console.log(say.substring(1,5));
+			var n = say.split("ll");
+			console.log(n)
+		</script>
+	</body>
+</html>

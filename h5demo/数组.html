@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<div onclick="chengfa()">点击</div>
+		<script>
+			var m = new Array('1', '2', '3');
+			for (let i = 0; i < m.length; i++) {
+				console.log(m[i])
+			}
+
+			// 			function con() {
+			// 				document.write("hello")
+			// 			}
+			// 			con();
+			// 
+			function chengfa() {
+				function count(x, y, z) {
+					var n = x * y;
+					var q = x * y * z;
+					var w = [n, q];
+					return w;
+				}
+				document.write(count(3, 5, 8)[0], count(3, 5, 8)[1]);
+				console.log(n)
+			}
+			var today = new Date();
+			// var n = today.setFullYear(1997)
+			console.log(today.getTime())
+			var eas = new Date('apr 16,1997 15:30:55');
+			var y = today.getTime() - eas.getTime();
+			var x = 60 * 60 * 24 * 365 * 1000;
+			console.log(y / x);
+			var a = "3";
+			var b = 3;
+			if (a === b) {
+				console.log("==")
+			} else {
+				console.log("!=")
+			}
+		</script>
+	</body>
+</html>

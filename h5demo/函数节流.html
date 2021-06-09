@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <input type="text" id="jieliu">
+        <script>
+            var inpu = document.getElementById("jieliu")
+            inpu.addEventListener("keyup",function(e){
+                jiuliucontioner(e.target.value)
+            })
+            
+            let jiuliucontioner = jiuliu(request,500)
+
+            function jiuliu(fn,delay){
+                let timer
+                return function(){
+                    if (!timer) {
+                        fn.apply(this,arguments)
+                        timer = setTimeout(() => {
+                            clearTimeout(timer)
+                            timer = null
+                        }, delay);
+                    }
+                }
+            }
+
+            function request(val){
+                console.log(val,"模拟请求--------")
+            }
+        </script>
+    </body>
+</html>

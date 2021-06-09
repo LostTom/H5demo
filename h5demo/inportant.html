@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <style>
+        /* 1.伪类选择器 */
+        #text:nth-child(1){
+            background: #666;
+        }
+        /* 2.id选择器 */
+        #text{
+            background: blue;
+        }
+        /* 同1 */
+        div:nth-child(1){
+            background: #333;
+        }
+        /* 标签选择器 */
+        div{
+            height: 100px;
+            width: 100px;
+            background: green;
+        }
+        /* 同1 */
+        .text:nth-child(1){
+            background: #5588ff;
+        }
+        /* class选择器 */
+        .text{
+            background: yellow;
+        }
+       /**
+        1. !important 不管写在哪优先级最高
+        2. 以上选择器是按优先级排序
+       **/
+    </style>
+    <body>
+        <div id="text" class="text"></div>
+    </body>
+</html>
